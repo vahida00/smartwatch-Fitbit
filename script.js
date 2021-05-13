@@ -1,34 +1,29 @@
-//  Selected the different color buttons
- var blackWatch=document.getElementById('black');
- var redWatch=document.getElementById('red');
- var blueWatch=document.getElementById('blue');
- var purpleWatch=document.getElementById('purple');
- var pinkWatch=document.getElementById('pink');
-
-// Select the Watch Image which is going to be updated
- var watch=document.getElementById('watch1');
-
-//  Update the watch according the color button
- blackWatch.addEventListener('click',function(){
-    var bgPath="/assests/black.png"
-    watch.src=bgPath;
- })
- redWatch.addEventListener('click',function(){
-    var bgPath="/assests/red.png"
-    watch.src=bgPath;
- })
- blueWatch.addEventListener('click',function(){
-    var bgPath="/assests/blue.png"
-    watch.src=bgPath;
- })
- purpleWatch.addEventListener('click',function(){
-    var bgPath="/assests/purple.png"
-    watch.src=bgPath;
- })
- pinkWatch.addEventListener('click',function(){
-    var bgPath="/assests/pink.png"
-    watch.src=bgPath;
- })
+var watch=document.getElementById('watch1');
+var color=document.querySelectorAll('.colour');
+var bgPath;
+color.forEach(colorItem=>{
+   colorItem.addEventListener('click',function(){
+      var selectedColor=colorItem.getAttribute('data-value');
+      console.log('selected color is '+selectedColor);
+      switch(selectedColor){
+         case 'red':
+            watch.src="assests/red.png"
+            break;
+         case 'blue':
+            watch.src="assests/blue.png"
+            break;
+         case 'purple':
+            watch.src="assests/purple.png"
+            break;
+         case 'pink':
+            watch.src="assests/pink.png"
+            break;
+         default:{
+            watch.src="assests/black.png"
+         }
+      }
+   })
+})
 
 //  CLOCK
 function clock(){
